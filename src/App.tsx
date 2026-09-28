@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Todo from "./Todo";
 
+
 type Todo = {
   id: number;
   text: string;
@@ -65,7 +66,11 @@ function App() {
               );
             })}</>
             ) : (
-              <h1 className="text-center text-white text-xl my-2">You have completed all your task!</h1>
+              <div>
+                <h1 className="text-center text-white text-xl my-2">You have completed all your task!</h1>
+                
+              </div>
+            
             )}
           </div>
         </div>

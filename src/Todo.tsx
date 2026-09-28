@@ -14,13 +14,21 @@ type TodoProps = {
 export default function Todo ({todo, completeTodo, deleteTodo}: TodoProps) {
     return (
         <div className="bg-mauve-300 p-2 rounded-md flex justify-between items-center font-bold my-4">
-            <p className ={`${todo.completed === true ? "line-through text-green-800" : " "}`}>{todo.text}</p>
-            <div className="flex items-center gap-2 cursor-pointer">
+            <p className ={`${todo.completed === true ? "line-through text-green-800" : " "}`}>{todo.text}
+            </p>
+              {todo.completed === true ? (
+            <div className="flex items-center gap-2 cursor-pointer">    
+                <FaTrash className = "hover:text-red-800"
+                onClick={() => deleteTodo(todo.id)} /> 
+            </div> 
+                ):
+            <div  className="flex items-center gap-2 cursor-pointer">
                 <FaCheckCircle className = "hover:text-green-700"
                 onClick={() => completeTodo(todo.id)}  />    
                 <FaTrash className = "hover:text-red-800"
                 onClick={() => deleteTodo(todo.id)} /> 
             </div>
+                 }
         </div>
     )
 }
